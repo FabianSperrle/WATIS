@@ -39,6 +39,12 @@
     <Reference Include="Microsoft.ComplexEventProcessing.Adapters, Version=21.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ComplexEventProcessing.ManagementService, Version=21.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ComplexEventProcessing.Observable, Version=21.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="SimpleTextFileReader">
+      <HintPath>..\..\..\..\..\Desktop\StreamInsightProductTeamSamples_V21\UdsoPatternDetector\SimpleTextFileWriter\bin\Debug\SimpleTextFileReader.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleTextFileWriter">
+      <HintPath>..\..\..\..\..\Desktop\StreamInsightProductTeamSamples_V21\UdsoPatternDetector\SimpleTextFileWriter\bin\Debug\SimpleTextFileWriter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -51,11 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TextFileEdgeInput.cs" />
-    <Compile Include="TextFileIntervalInput.cs" />
-    <Compile Include="TextFilePointInput.cs" />
-    <Compile Include="TextFileReaderConfig.cs" />
-    <Compile Include="TextFileReaderFactory.cs" />
     <Compile Include="TwitterData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +69,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\2015_02_01_06.csv" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
