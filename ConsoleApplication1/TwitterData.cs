@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StreamInsight21_example_Server
+namespace ConsoleApplication1
 {
-    class TwitterData
+    public class TwitterData
     {
 
         public TwitterData(String TWEET_ID, String TWEET_CREATIONDATE, String TWEET_CONTENT, String TWEET_RETWEETED, String TWEET_RETWEETCOUNT, String TWEET_COORDS, String TWEET_SOURCE, String TWEET_URLS, String MEDIA_URLS, String TWEET_PLACE, String TWEET_REPLYTOSTATUS, String TWEET_REPLYTOUSERID, String TWEET_REPLYTOUSERNAME, String USER_ID, String USER_NAME, String USER_SCREENNAME, String USER_CREATIONDATE, String USER_LANGUAGE, String USER_STATUSESCOUNT, String USER_FOLLOWERSCOUNT, String USER_LOCATION, String USER_DESCRIPTION, String USER_FRIENDSCOUNT, String USER_TIMEZONE, String USER_LISTEDCOUNT, String USER_UTCOFFSET)
@@ -37,6 +37,9 @@ namespace StreamInsight21_example_Server
             this.USER_TIMEZONE = USER_TIMEZONE;
             this.USER_LISTEDCOUNT = USER_LISTEDCOUNT;
             this.USER_UTCOFFSET = USER_UTCOFFSET;
+        }
+
+        public TwitterData() {
         }
 
 
