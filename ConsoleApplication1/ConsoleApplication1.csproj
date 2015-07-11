@@ -51,12 +51,6 @@
     <Reference Include="NTextCat">
       <HintPath>..\packages\NTextCat.0.2.1.30\lib\net40\NTextCat.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleTextFileReader">
-      <HintPath>..\..\..\..\..\Desktop\StreamInsightProductTeamSamples_V21\UdsoPatternDetector\SimpleTextFileWriter\bin\Debug\SimpleTextFileReader.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleTextFileWriter">
-      <HintPath>..\..\..\..\..\Desktop\StreamInsightProductTeamSamples_V21\UdsoPatternDetector\SimpleTextFileWriter\bin\Debug\SimpleTextFileWriter.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -69,8 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TweetTextToTerms.cs" />
     <Compile Include="TwitterDataTerm.cs" />
+    <Compile Include="TwitterTextToTermsUDO.cs" />
     <Compile Include="TwitterData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +77,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\top.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

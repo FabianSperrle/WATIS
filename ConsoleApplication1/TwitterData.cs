@@ -9,6 +9,8 @@ namespace ConsoleApplication1
     public class TwitterData
     {
 
+        public TwitterData() { }
+
         public TwitterData(String TWEET_ID, String TWEET_CREATIONDATE, String TWEET_CONTENT, String TWEET_RETWEETED, String TWEET_RETWEETCOUNT, String TWEET_COORDS, String TWEET_SOURCE, String TWEET_URLS, String MEDIA_URLS, String TWEET_PLACE, String TWEET_REPLYTOSTATUS, String TWEET_REPLYTOUSERID, String TWEET_REPLYTOUSERNAME, String USER_ID, String USER_NAME, String USER_SCREENNAME, String USER_CREATIONDATE, String USER_LANGUAGE, String USER_STATUSESCOUNT, String USER_FOLLOWERSCOUNT, String USER_LOCATION, String USER_DESCRIPTION, String USER_FRIENDSCOUNT, String USER_TIMEZONE, String USER_LISTEDCOUNT, String USER_UTCOFFSET)
         {
             this.TWEET_ID = TWEET_ID;
@@ -39,10 +41,6 @@ namespace ConsoleApplication1
             this.USER_UTCOFFSET = USER_UTCOFFSET;
         }
 
-        public TwitterData() {
-        }
-
-
         public string TWEET_ID { get; set; }
         public string TWEET_CREATIONDATE { get; set; }
         public string TWEET_CONTENT { get; set; }
@@ -69,5 +67,10 @@ namespace ConsoleApplication1
         public string USER_TIMEZONE { get; set; }
         public string USER_LISTEDCOUNT { get; set; }
         public string USER_UTCOFFSET { get; set; }
+
+        public override string ToString()
+        {
+            return this.TWEET_CONTENT;
+        }
     }
 }
