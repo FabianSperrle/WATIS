@@ -80,9 +80,15 @@ namespace ConsoleApplication1
                                       where !Program.isStopword(t.Term)
                                       select t;
 
+                    var agg = from t in noStopWords.TumblingWindow(TimeSpan.FromSeconds(1))
+                              select t.WTS();
+
+                    var consoleObserver = app.DefineObserver(() => Observer.Create<PointEvent<String>>(ConsoleWritePoint));
+                    var binding = agg.Bind(consoleObserver);
+
                     // Create and attach the console observer
-                    var consoleObserver = app.DefineObserver(() => Observer.Create<PointEvent<TwitterDataTerm>>(ConsoleWritePoint));
-                    var binding = noStopWords.Bind(consoleObserver);
+                    // var consoleObserver = app.DefineObserver(() => Observer.Create<PointEvent<TwitterDataTerm>>(ConsoleWritePoint));
+                    // var binding = noStopWords.Bind(consoleObserver);
 
                     // Run everything, stop programming upon enter
                     using (binding.Run("Goooooo"))

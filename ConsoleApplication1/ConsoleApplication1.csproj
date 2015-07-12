@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlueSimilarity">
+      <HintPath>..\packages\BlueSimilarity.2.0.0\lib\net45\BlueSimilarity.dll</HintPath>
+    </Reference>
+    <Reference Include="Centivus.EnglishStemmer">
+      <HintPath>..\..\Downloads\TFIDF-master\TFIDF-master\TFIDFExample\bin\Debug\Centivus.EnglishStemmer.dll</HintPath>
+    </Reference>
     <Reference Include="IvanAkcheurov.Commons">
       <HintPath>..\packages\IvanAkcheurov.NTextCat.Lib.0.2.1.1\lib\net40\IvanAkcheurov.Commons.dll</HintPath>
     </Reference>
@@ -63,7 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="WATIS.cs" />
+    <Compile Include="TFIDF.cs" />
+    <Compile Include="StopWords.cs" />
     <Compile Include="TwitterDataTerm.cs" />
     <Compile Include="TwitterTextToTermsUDO.cs" />
     <Compile Include="TwitterData.cs" />
@@ -94,6 +102,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\stopwords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\BlueSimilarity.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\BlueSimilarity.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
