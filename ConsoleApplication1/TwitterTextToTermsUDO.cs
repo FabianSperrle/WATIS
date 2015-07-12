@@ -9,8 +9,11 @@ using Microsoft.ComplexEventProcessing.Linq;
 
 namespace ConsoleApplication1
 {
+    [Serializable]
     class TwitterTextToTermsUDO : CepPointStreamOperator<TwitterData, TwitterDataTerm>
     {
+        public TwitterTextToTermsUDO() { }
+
         public override bool IsEmpty
         {
             get { return false; }
@@ -19,7 +22,7 @@ namespace ConsoleApplication1
         {
             TwitterData tweet = e.Payload;
             var output = new List<TwitterDataTerm>();
-            string[] seperators = {",", ".", ";", "!", "?", " ", ":"};
+            string[] seperators = {",", ".", "..", "...", "....", ";", "!", "!!", "!!!", "?", "??", "???", " ", ":"};
             string[] terms = tweet.TWEET_CONTENT.Split(seperators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string Term in terms)

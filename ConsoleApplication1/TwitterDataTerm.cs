@@ -18,5 +18,10 @@ namespace ConsoleApplication1
             this.Term = Term;
             this.TwitterData = TwitterData;
         }
+
+        public override string ToString()
+        {
+            return String.Format("{0}: {1}", Term, TwitterData.TWEET_CONTENT.Substring(0, Math.Min(TwitterData.TWEET_CONTENT.Length, 20)));
+        }
     }
 }
