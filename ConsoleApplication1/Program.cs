@@ -36,6 +36,7 @@ namespace ConsoleApplication1
                 //)}).
                 //ToPointStreamable(e => e, AdvanceTimeSettings.IncreasingStartTime);
         //}
+        static String[] stopwords; 
         static void Main(string[] args)
         {
             // Create an embedded StreamInsight server
@@ -71,9 +72,17 @@ namespace ConsoleApplication1
                     // Split tweets into terms
                     var terms = stream.Scan(() => new TwitterTextToTermsUDO());
 
+                    // Get all the stopwords
+                    stopwords = File.ReadAllLines("Resources\\stopwords.txt");
+
+                    // Filter all terms based on stopwords
+                    var noStopWords = from t in terms
+                                      where !Program.isStopword(t.Term)
+                                      select t;
+
                     // Create and attach the console observer
                     var consoleObserver = app.DefineObserver(() => Observer.Create<PointEvent<TwitterDataTerm>>(ConsoleWritePoint));
-                    var binding = terms.Bind(consoleObserver);
+                    var binding = noStopWords.Bind(consoleObserver);
 
                     // Run everything, stop programming upon enter
                     using (binding.Run("Goooooo"))
@@ -90,6 +99,10 @@ namespace ConsoleApplication1
                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "INSERT <{0}> {1}", e.StartTime.DateTime, e.Payload.ToString()));
             else
                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "CTI    <{0}>", e.StartTime.DateTime));
+        }
+
+        public static bool isStopword(String Term) {
+            return stopwords.Contains(Term);
         }
     }
 

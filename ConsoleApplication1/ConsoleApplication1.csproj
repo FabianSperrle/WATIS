@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="TwitterDataTerm.cs" />
     <Compile Include="TwitterTextToTermsUDO.cs" />
     <Compile Include="TwitterData.cs" />
@@ -90,6 +91,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\Core14.profile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\stopwords.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
