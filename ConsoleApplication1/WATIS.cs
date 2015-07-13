@@ -14,12 +14,7 @@ namespace ConsoleApplication1
     {
         public override string GenerateOutput(IEnumerable<Microsoft.ComplexEventProcessing.IntervalEvent<TwitterDataTerm>> eventData, WindowDescriptor windowDescriptor)
         {
-            var tweets = (from t in eventData
-                          select t.Payload.TwitterData.TWEET_CONTENT).Distinct();
-            var distinctTerms = String.Join(" ", eventData.Select(e => e.Payload.Term).Distinct());
-
-            
-            return distinctTerms;
+            return "watis";
 
             /*
             var g = eventData.GroupBy(e => e.Payload.Term);
@@ -36,7 +31,7 @@ namespace ConsoleApplication1
     public static class MyUDAExtensionMethods
     {
         [CepUserDefinedAggregate(typeof(Watis))]
-        public static string WTS<TwitterDataTerm>(this CepWindow<TwitterDataTerm> window)
+        public static string WATIS<TwitterDataTerm>(this CepWindow<TwitterDataTerm> window)
         {
             throw CepUtility.DoNotCall();
         }

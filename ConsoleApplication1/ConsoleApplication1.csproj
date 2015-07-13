@@ -11,6 +11,21 @@
     <AssemblyName>ConsoleApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BlueSimilarity">
-      <HintPath>..\packages\BlueSimilarity.2.0.0\lib\net45\BlueSimilarity.dll</HintPath>
-    </Reference>
     <Reference Include="Centivus.EnglishStemmer">
       <HintPath>..\..\Downloads\TFIDF-master\TFIDF-master\TFIDFExample\bin\Debug\Centivus.EnglishStemmer.dll</HintPath>
     </Reference>
@@ -46,9 +58,6 @@
     </Reference>
     <Reference Include="IvanAkcheurov.NTextCat.Lib">
       <HintPath>..\packages\IvanAkcheurov.NTextCat.Lib.0.2.1.1\lib\net40\IvanAkcheurov.NTextCat.Lib.dll</HintPath>
-    </Reference>
-    <Reference Include="LumenWorks.Framework.IO">
-      <HintPath>..\packages\LumenWorksCsvReader.3.9\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ComplexEventProcessing, Version=21.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ComplexEventProcessing.Adapters, Version=21.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -69,9 +78,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSV\CsvCommon.cs" />
+    <Compile Include="CSV\CsvInputAdapter.cs" />
+    <Compile Include="CSV\CsvInputConfig.cs" />
+    <Compile Include="CSV\CsvInputFactory.cs" />
+    <Compile Include="CSV\CsvInputInterval.cs" />
+    <Compile Include="CSV\CsvInputPoint.cs" />
+    <Compile Include="CSV\CsvInputState.cs" />
+    <Compile Include="CSV\CsvOutputAdapter.cs" />
+    <Compile Include="CSV\CsvOutputConfig.cs" />
+    <Compile Include="CSV\CsvOutputEdge.cs" />
+    <Compile Include="CSV\CsvOutputFactory.cs" />
+    <Compile Include="CSV\CsvOutputInterval.cs" />
+    <Compile Include="CSV\CsvOutputPoint.cs" />
+    <Compile Include="FilterEnglish.cs" />
+    <Compile Include="CSV\IInputAdapter.cs" />
+    <Compile Include="CSV\IOutputAdapter.cs" />
     <Compile Include="WATIS.cs" />
-    <Compile Include="TFIDF.cs" />
-    <Compile Include="StopWords.cs" />
     <Compile Include="TwitterDataTerm.cs" />
     <Compile Include="TwitterTextToTermsUDO.cs" />
     <Compile Include="TwitterData.cs" />
@@ -86,6 +109,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\day1.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\top.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -96,18 +122,29 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Centivus.EnglishStemmer.dll" />
     <Content Include="Resources\Core14.profile.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\stopwords.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x64\BlueSimilarity.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\BlueSimilarity.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

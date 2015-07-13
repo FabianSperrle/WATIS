@@ -18,11 +18,14 @@ namespace ConsoleApplication1
         {
             get { return false; }
         }
+
+       private string[] seperators = { ",", ".", "..", "...", "....", ";", "!", "!!", "!!!", "?", "??", "???", " ", ":" };
+
         public override IEnumerable<TwitterDataTerm> ProcessEvent(PointEvent<TwitterData> e)
         {
             TwitterData tweet = e.Payload;
             var output = new List<TwitterDataTerm>();
-            string[] seperators = {",", ".", "..", "...", "....", ";", "!", "!!", "!!!", "?", "??", "???", " ", ":"};
+            
             string[] terms = tweet.TWEET_CONTENT.Split(seperators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string Term in terms)
